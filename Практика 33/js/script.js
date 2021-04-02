@@ -53,6 +53,7 @@ for (let i = 0; i < mov.length; i++) {
 let movieNew = document.querySelector('.adding__input');
 let button = document.querySelector('button');
 button.addEventListener('click', (ev) => {
+    if (movieNew.value) {
     ev.preventDefault();
     movieDB.movies.push(movieNew.value);
     const movieList = document.querySelector(".promo__interactive-list");
@@ -81,18 +82,21 @@ button.addEventListener('click', (ev) => {
     movieNew.value = '';
 
 });
+    } else {
+        ev.preventDefault();
+    }
 
+
+});
 let dlts = document.querySelectorAll('.delete');
 //console.log(dlt);
 
 dlts.forEach ((dlt, i) => {
     let li = document.querySelectorAll('.promo__interactive-item');
     dlt.addEventListener('click', () => {
-        li[i].remove();
         movieDB.movies.splice(i, 1);
+        li[i].remove();
         console.log(movieDB.movies);
     }
 );
-});
-
 });
