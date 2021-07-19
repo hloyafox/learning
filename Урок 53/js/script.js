@@ -239,8 +239,9 @@ function postData(form) {
       if (request.status === 200) {
           console.log(request.response);
           showThanksModal(message.succsess);
-          statusMessage.remove();
           form.reset();
+          statusMessage.remove();
+          
       } else {
           showThanksModal(message.failure);
       }
